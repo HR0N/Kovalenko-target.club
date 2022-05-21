@@ -1,0 +1,155 @@
+/*                                                                                  project settings [start]         */
+body, html, *{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial Black";
+}
+::-webkit-scrollbar {                             /* width */
+    width: 4px;
+}
+::-webkit-scrollbar-track {                       /* Track */
+    background: #b6c9ff;
+}
+::-webkit-scrollbar-thumb {                      /* Handle */
+    background: #222431;
+}
+::-webkit-scrollbar-thumb:hover {       /* Handle on hover */
+    background: #555;
+}
+/*                                                                                  project settings   [end]         */
+/*                                                                                  body   [start]         */
+body{
+    display: grid;
+    min-height: 100vh;
+    grid-template:
+            [start] "header" 90px [r2]
+            [r2] "main" 1fr [r3]
+            [r3] "footer" 84px [end];
+}
+/*                                                                                  body     [end]         */
+/*                                                                                  header   [start]         */
+.header{
+    grid-area: header;
+    background-color: blue;
+    display: grid;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+}
+/*                                          header-nav [start]     */
+/*  header-nav > main ul     */
+ul.header-nav{
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    position: relative;
+    display: inline-grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    align-content: center;
+    justify-content: right;
+    column-gap: 15px;
+    padding: 0 15%;
+    box-sizing: border-box;
+}
+ul.header-nav li{
+    align-self: center;
+}
+.navbar-brand{
+    position: absolute;
+    left: 15%;
+    width: 63px;
+    height: 63px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white;
+    top: -11px;
+}
+.navbar-brand a{
+    display: block;
+    height: 100%;
+    top: -50%;
+}
+.navbar-brand img{
+    border-radius: 50%;
+    opacity: .8;
+}
+ul.header-nav .menu-item{
+    width: auto;
+    position: relative;
+}
+ul.header-nav .menu-item a{
+    display: grid;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 8px 25px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all linear .2s;
+}
+ul.header-nav .menu-item .sub-menu{
+    background-color: white;
+    border-radius: .25rem;
+    border: 1px solid lightgray;
+}
+ul.header-nav .menu-item .sub-menu a{
+    color: blue;
+}
+ul.header-nav .menu-item .sub-menu > .menu-item:hover > a{color: greenyellow;}
+ul.header-nav > .menu-item:hover > a{
+    border: 2px solid greenyellow;
+    color: greenyellow;
+}
+ul.header-nav .menu-item a:active{
+    background-color: rgba(0, 0, 0, 0.31);
+}
+/* header-nav > sub ul     */
+ul.header-nav .menu-item:hover > ul{
+    display: grid;
+    animation: .3s linear show_submenu_width_delay;
+}
+ul.header-nav .menu-item ul{
+    position: absolute;
+    left: 0;
+    margin: 0;
+    display: none;
+    width: auto;
+    min-width: 100%;
+    list-style: none;
+}
+ul.header-nav .menu-item ul .menu-item{}
+ul.header-nav .menu-item ul .menu-item a{
+    white-space: nowrap;
+    transition: .1s linear all;
+}
+@keyframes show_submenu_width_delay {
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+ul.header-nav .menu-item.menu-item-has-children a{
+    text-indent: -15px;
+}
+.menu-item-has-children > a:after{
+    content: '\23F7';
+    position: absolute;
+    right: 5px;
+}
+/*                                          header-nav   [end]     */
+/*                                                                                  header     [end]         */
